@@ -11,3 +11,20 @@
 目前里面有个超参，控制injection力度，可能可以改进（？）
 
 训练过程：训练一个base，freeze掉它，然后训练权重注入部分。
+
+Embedded Hypernetwork NN Operator
+
+It’s been fully occupied laterally, and I don't want to work on this or those adaptation-related studies anymore, so I'm open-sourcing it directly.
+
+If it helps you, please consider giving it a star.
+
+Back then (around 2024-09-25 or earlier, I was secretly using idle lab machines to play around with AI-generated images), I came up with this idea while thinking about prompts in AI drawing:
+If I want to draw an animal that is 0.1 like a cat and 0.9 like a dog, in traditional architectures, with fixed weights, 0.1/0.9 doesn’t produce more attention change than a 0.5 cat/dog prompt (I did some simple visualizations to verify this). The differences were even less impactful than the random seed...
+
+So, for different input representations, there should actually be an adaptation process: a two-stage approach that injects weights into the model based on the input (or its features).
+
+Similarly, this method can be used to adapt to different tasks by adjusting the injection, achieving an adaptive effect or something similar to a Mixture-of-Experts (MoE) approach.
+
+Currently, there’s a hyperparameter inside that controls the strength of the injection — might be improvable (?)
+
+Training process: Train a base model, freeze it, then train the weight injection component.
